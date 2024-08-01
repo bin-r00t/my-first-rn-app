@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import {
   Alert,
   Button,
+  FlatList,
   ScrollView,
   StyleSheet,
   Text,
@@ -20,7 +21,7 @@ export default function App() {
   }
   function handleClick() {
     setGoals((old) => {
-      return [...old, enteredText];
+      return [...old, { value: enteredText, id: Math.random().toString() }];
     });
     setEnteredText("");
     // Alert.alert("I'm an alert", enteredText ?? "Hello world!");
@@ -39,13 +40,26 @@ export default function App() {
       </View>
       <View style={styles.mainBody}>
         {/* alwaysBounceVertical 这类 prop 需要参考官网 Components API  */}
-        <ScrollView style={styles.scrollArea} alwaysBounceVertical={false}>
+        <FlatList
+          style={styles.scrollArea}
+          alwaysBounceVertical={false}
+          data={goals}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+          renderItem={(goal) => (
+            <View style={styles.rounded}>
+              <Text style={styles.goalItem}>{goal.item.value}</Text>
+            </View>
+          )}
+        />
+        {/* <ScrollView style={styles.scrollArea} alwaysBounceVertical={false}>
           {goals.map((goal, index) => (
             <View key={index} style={styles.rounded}>
               <Text style={styles.goalItem}>{goal}</Text>
             </View>
           ))}
-        </ScrollView>
+        </ScrollView> */}
       </View>
     </View>
   );
