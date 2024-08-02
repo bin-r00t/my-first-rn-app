@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: Color.lightgray,
     overflow: "hidden",
-    elevation: 4,
+    // elevation: 4,
   },
   goalItem: {
     fontSize: 18,
