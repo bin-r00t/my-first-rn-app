@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
   rounded: {
     marginVertical: 8,
     borderRadius: 8,
-    backgroundColor: Color.lightgray,
+    backgroundColor: 'orange',
     overflow: "hidden",
     // elevation: 4,
   },
   goalItem: {
     fontSize: 18,
-    color: "#666",
+    color: '#fff',
   },
   goalClicked: {
     // opacity: 0.8,
